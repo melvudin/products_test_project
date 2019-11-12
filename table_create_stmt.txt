@@ -1,0 +1,36 @@
+CREATE TABLE `comments` (
+  `comment_id` int(11) NOT NULL,
+  `product_id` varchar(60) NOT NULL,
+  `username` varchar(45) NOT NULL,
+  `name` varchar(45) NOT NULL,
+  `text` varchar(255) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `is_approved` bit(1) NOT NULL DEFAULT b'0',
+  PRIMARY KEY (`comment_id`,`product_id`,`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `logged_users` (
+  `username` varchar(45) NOT NULL,
+  `token` varchar(255) NOT NULL,
+  `login_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `products` (
+  `id` varchar(60) NOT NULL,
+  `image_path` varchar(255) NOT NULL,
+  `title` varchar(60) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `users` (
+  `username` varchar(45) NOT NULL,
+  `password` varchar(60) NOT NULL,
+  `first_name` varchar(60) NOT NULL,
+  `last_name` varchar(60) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `type` bit(1) NOT NULL DEFAULT b'0',
+  PRIMARY KEY (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

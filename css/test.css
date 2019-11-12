@@ -1,0 +1,17 @@
+.rounded{
+	border-radius:4px;
+}
+.solid{
+	border:1px solid;
+}
+.emptydivs{
+	height:10px;
+}
+.zerosidepadding{
+	padding-left:0px;
+	padding-right:0px;
+}
+.centered{
+	display: flex;
+	justify-content: center;
+}
